@@ -1,0 +1,13 @@
+<div class="templates-list">
+  <table class="table">
+    <tbody>
+      <% templates.each do |t| %>
+        <tr>
+          <td> <%= t.pictogram %> </td>
+          <td> <%= link_to '', instructor_template_path(@current_instructor, t), method: :delete, class: 'oi oi-trash', title: "Удалить #{t.pictogram}" %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

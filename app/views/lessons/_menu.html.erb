@@ -1,0 +1,7 @@
+<div class="pre-scrollable" style="max-width: 200px;">
+  <% @lessons.each do |l| %>
+    <li class="nav-item">
+      <%= link_to l.number, instructor_student_lesson_path(l.student.instructor, l.student, l), class: "nav-link  btn-info" if l.id %>
+    </li>
+  <% end  %>
+</div>

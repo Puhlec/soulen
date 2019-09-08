@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Фио</th>
+      <th scope="col">Логин</th>
+      <th scope="col">Дата последнего занятия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |s| %>
+      <td> <%= s.fullname %> </td>
+      <td>  <%= s.name %> </td>
+      <td>
+        <% if s.lessons.last %>
+          <% if s.lessons.last.tempus %>
+            <%= s.lessons.last.tempus.strftime("%d.%m.%Y %H:%k") %>
+            <% end %>
+        <% end %>
+      </td>
+      <td>   <%= button_to 'Вернуть в действующие', fromarchive_path(s.id), class: 'btn btn-info' %> </td>
+      <td>    <%= link_to 'Удалить', instructor_student_path(s.instructor, s), method: :delete, title: 'Удалить навсегда', class: 'btn btn-outline-danger', data:
+              {confirm: 'Вы уверены, что хотите удалить навсегда данные об обучаемом, включая занятия?'} %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

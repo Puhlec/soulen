@@ -1,0 +1,23 @@
+<%= bootstrap_form_with model: instructor, local: true do |form| %>
+  <% if instructor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
+
+      <ul>
+        <% instructor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :name, skip_label: true, placeholder: 'Логин' %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :password, skip_label: true, placeholder: 'Пароль' %>
+  </div>
+
+  <%= form.submit:"Сохранить", class: 'btn btn-info' %>
+<% end %>

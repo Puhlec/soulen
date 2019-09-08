@@ -1,0 +1,6 @@
+<%= bootstrap_form_with model: [comm.lesson.student.instructor, comm.lesson.student, comm.lesson, comm], local: true do |form|  %>
+  <div class="field">
+    <%= form.text_area :body, skip_label: true, placeholder: "Комментировать" %>
+  </div>
+  <%= form.submit :"Сохранить", class: "btn btn-info"%>
+<% end %>

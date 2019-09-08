@@ -1,0 +1,6 @@
+<div> Шаблоны: </div>
+<% if @templates %>
+  <%=render 'templates/index', templates: @templates %>
+<% end %>
+<div> Добавить шаблоны, которые можно потом будет использовать при добавлении урока: </div>
+<%= render 'templates/form', template: @instructor.templates.new %>

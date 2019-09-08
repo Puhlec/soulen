@@ -1,0 +1,34 @@
+<% if @current_instructor%>
+  <%= link_to 'Добавить урок', new_instructor_student_lesson_path(@current_instructor, @student), remote: true, class: 'btn btn-info' %>
+<% end %>
+<p id="notice"><%= notice %></p>
+<p>
+  <% if @student.avatar.attached?  %>
+    <%= image_tag @student.avatar, style: "max-width: 100px" %>
+  <% end %>
+  <% if @student.fullname %>
+    <%= @student.fullname %>
+    <% else %>
+    <%= @student.name %>
+    <% end %>
+  <% if @student.birthday %>
+  <div>  Дата рождения:
+    <%= @student.birthday %> </div>
+  <% end %>
+  <div>
+    <% if @student.startlearn %>
+    Дата начала занятий:
+      <%= @student.startlearn %>
+      <% end %>
+  </div>
+  <div>
+    <% if @student.datexam %>
+      Дата экзаменов:
+      <%= @student.datexam %>
+    <% end %>
+  </div>
+</p>
+<hr>
+<p> Уроки: </p>
+<%= render 'lessons/menu' %>
+<hr>

@@ -1,0 +1,15 @@
+<%= form_with model: [entry.lesson.student.instructor, entry.lesson.student, entry.lesson, entry], remote: true do |f| %>
+  <div>
+    <%= f.text_field :note, autocomplete: 'off', id: 'lol', class: 'autocomplete', type: 'text' %>
+    <script>    
+     Gachi.autocomplete(document.getElementById("lol"), JSON.parse(`<%= escape_javascript(raw (@templates.map {|t| t.pictogram}).to_json) %>`))
+    </script>
+  </div>
+  <div>
+    <%= f.label :Оценка %>
+    <%= f.number_field :mark %>
+  </div>
+  <div class="actions">
+    <%= f.submit :'Сохранить запись' %>
+  </div>
+<% end %>

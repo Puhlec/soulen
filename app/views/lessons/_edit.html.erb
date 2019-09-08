@@ -1,0 +1,21 @@
+<%= form_with model: [lesson.student.instructor, lesson.student, lesson], local: true do |form|  %>
+  <div class="field">
+    <%= form.label :"Номер урока" %>
+    <%= form.number_field :number %>
+  </div>
+  <div class="field">
+    <%= form.label :Содержание %>
+    <%= form.rich_text_area :content %>
+  </div>
+  <div class="field">
+    <%= form.label :"Ссылка на видео" %>
+    <%= form.text_area :video %>
+  </div>
+<%= fields_for :entries %>  
+  <div class="actions">
+    <%= form.submit :Сохранить %>
+  </div>
+<% end %>
+<% entries.each do |e| %>
+<%= render 'entries/form', entry: e%>
+  <% end %>

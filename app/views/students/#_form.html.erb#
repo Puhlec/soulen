@@ -1,0 +1,35 @@
+        <%= bootstrap_form_with model: [student.instructor, student], local: true do |form| %>
+          <div class="form">
+            <% if student.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+                <ul>
+                  <% student.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class = "form" 
+                 
+                 <%= form.text_area :name, skip_label: true, placeholder: "Имя" %>
+            </div>
+
+            <div class="field">
+              <%= form.text_field :password, skip_label: true, placeholder: "Пароль" %>
+            </div>
+            <div>
+              <%= form.label :Аватарка %>
+              <%= form.file_field :avatar, skip_label: true, class: "btn btn-info", placeholder: "Нажмите, чтобы выбрать файл"  %>
+            </div>
+            <%= form.label :'Дата рождения:' %>
+            <%=  form.date_field :birthday, skip_label: true, placeholder: "Дата рождения" %>
+            <%= form.label :'Дата начала занятий:' %>
+            <%=  form.date_field :startlearn, skip_label: true, placeholder: 'Дата начала обучения' %>
+            <%= form.label :'Дата экзамена:'%>
+            <%=  form.date_field :datexam, skip_label: true, placeholder: 'Дата экзамена'%>
+            <hr>
+            <%= form.submit :"Сохранить", class: "btn btn-info"%>
+        <% end %>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Вождение с удовольствием</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if @current_instructor or @current_student or @current_admin %>
+      <nav class="navbar navbar-light">
+        <form class="form-inline">
+          <% if @current_instructor %>
+            <%= link_to 'Выйти', logout_path, method: 'delete', class: "btn btn-outline-success"  %>
+            <%= link_to 'Ученики', instructor_path(@current_instructor), class: "btn btn-outline-success" %>
+            <%= link_to 'Настройки', settings_path(@current_instructor), class: "btn btn-outline-success" %>
+            <% if @student %>
+            <% end%>
+          <% else %>
+            <% if @current_student %>
+              <%= link_to 'Выйти', logout_path, method: 'delete', class: "btn btn-outline-success"  %>
+              <br>
+              <%= link_to 'Уроки', instructor_student_path(@current_student.instructor, @current_student),  class: "btn btn-outline-success"%>
+            <% else %>
+              <% if @current_admin %>
+                <%= link_to 'Выйти', logout_path, method: 'delete', class: "btn btn-outline-success"  %>
+                <br>
+                <%= link_to 'Инструкторы', instructors_path,  class: "btn btn-outline-success"%>
+                <%= link_to 'Обновить статус', edit_status_path(Status.last), class: 'oi oi-pencil', remote: true %>
+              <% else %>
+              <% end %>
+            <% end %>
+          <% end %>
+    <% end %>        
+        </form>
+      </nav>
+      
+      <%= yield %>
+      
+      <div id="modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

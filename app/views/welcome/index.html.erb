@@ -1,0 +1,13 @@
+<div class="bg">
+
+  <div class ="cent">
+    
+    <%= link_to 'Войти', login_path, class: 'btn btn-lg btn-outline-success', remote: true, style: 'width=200px; heght=200px;'%>
+  </div>
+    <div class ="center">
+      <%= @status.statum %>
+      <% if @current_admin %>
+        <%= link_to '', edit_status_path(@status), class: 'oi oi-pencil', remote: true %>
+      <% end %>
+    </div>
+</div>

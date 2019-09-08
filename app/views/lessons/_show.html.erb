@@ -1,0 +1,69 @@
+<h5>
+  Урок <%= lesson.number %>
+</h5>
+<% if lesson.tempus %>
+    Дата и время урока:
+  <%= lesson.tempus.strftime("%d.%m.%Y %H:%k") %>
+  <% end %>
+<p>
+  <%= lesson.content %>
+</p>
+<table class ="table">
+  <% lesson.entries.each do |e| %>
+
+    <tr>
+      <td> <%= e.note  %> </td>
+      <td> <%= e.mark %> </td>
+      <% if @current_instructor %>
+      <td> <%= link_to 'Редактировать', edit_instructor_student_lesson_entry_path(lesson.student.instructor, lesson.student, lesson, e), remote: true %>
+        <td> <%= link_to 'Удалить', instructor_student_lesson_entry_path(lesson.student.instructor, lesson.student, lesson, e), method: :delete %>
+        </td>
+        <% end %>
+    </tr>
+
+<% end %>
+</table>
+</p>
+<% if lesson.video.length > 0 %>
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= lesson.video[/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i, 1] %>" allowfullscreen ></iframe>
+  </div>
+<% end %>
+<% if @current_instructor %>
+  <%= link_to "Удалить урок", instructor_student_lesson_path(lesson.student.instructor, lesson.student, lesson), method: :delete, class: "card-link" %>
+
+  <%= link_to "Изменить урок", edit_instructor_student_lesson_path(lesson.student.instructor, lesson.student, lesson), class: "card-link", remote: true %>
+<% end %>
+
+<% if @current_instructor %>
+  <div>
+    Добавить записи
+    <%= render 'entries/form', entry: @lesson.entries.new %>
+  </div>
+<% end %>
+<%= render 'comms/form', comm: @lesson.comms.new %>
+<div class="card">
+  <div class="card-header">
+    Комментарии
+  </div>
+</div>
+<% @comms.each do |c| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">
+        
+        <%= c.author %>
+        <% if @current_instructor %>
+          <%= link_to "", instructor_student_lesson_comm_path(c.lesson.student.instructor, c.lesson.student, c.lesson, c), method: :delete, class: "oi oi-trash", title: "Удалить" if c.author == @current_instructor.name %>
+        <% end %>
+        <% if @current_student %>
+          <%= link_to "", instructor_student_lesson_comm_path(c.lesson.student.instructor, c.lesson.student, c.lesson, c), method: :delete, class: "oi oi-trash", title: "Удалить" if c.author == @current_student.name %>
+        <% end %>
+      </h5>
+      <p class="card-text">
+        <%= c.body %> </p>
+
+    </div>
+  </div>
+<% end %>
+
