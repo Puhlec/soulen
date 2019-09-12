@@ -21,7 +21,7 @@
   height: 100%;
 }
  .btn-lg {
-   padding: 5rem 5rem;
+   padding: 1rem 5rem;
  }
 .bg {
   /* The image used */
@@ -44,7 +44,7 @@
 }
 .center {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -87,4 +87,10 @@
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
   color: #ffffff;
+}
+
+h1, h2
+{
+  position: relative;
+  left: 10px;
 }
