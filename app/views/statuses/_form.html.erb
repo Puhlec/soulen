@@ -11,13 +11,16 @@
     </div>
   <% end %>
   <div class="field">
-    <%=  form.text_field :general, skip_label: true %>
+    <%= form.label :Статус %>
+    <%=  form.text_field :funny, skip_label: true %>
   </div>
   <div class="field">
-    <%=  form.text_field :funny, skip_label: true %>
+    <%= form.label :'Над кнопкой'%>
+    <%=  form.text_field :general, skip_label: true %>
   </div>
 
   <div class="field">
+    <%= form.label :'Под кнопкой'%>
     <%=  form.text_field :statum, skip_label: true %>
   </div>
   <div class="actions">

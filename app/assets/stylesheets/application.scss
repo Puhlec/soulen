@@ -40,7 +40,8 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: block;
 }
 .center {
   position: absolute;
@@ -48,7 +49,7 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  
+  display: block;
 }
 .flex-column {
   width: 10px;
@@ -89,8 +90,9 @@
   color: #ffffff;
 }
 
-h1, h2
+h1, h2, p
 {
   position: relative;
   left: 10px;
+  
 }
