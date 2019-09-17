@@ -1,5 +1,5 @@
 class InstructorsController < ApplicationController
-  before_action :set_instructor, :check_instructor, only: [:show, :edit, :update, :destroy]
+  before_action :set_instructor, :check_instructor, only: [:show, :edit, :update, :destroy, :settings]
   before_action :authorize_admin, only: [:edit, :create, :new,:destroy, :index]
   before_action :show_templates, :authorize_instructor, only: [:show, :index]
   # GET /instructors
@@ -63,7 +63,6 @@ class InstructorsController < ApplicationController
     end
   end
   def settings
-    @instructor = @current_instructor
     @students = @instructor.students.where(unused: true)
     @templates = @instructor.templates.all
   end

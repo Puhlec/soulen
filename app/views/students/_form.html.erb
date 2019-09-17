@@ -22,9 +22,9 @@
     </div>
     <div>
       <%= form.label :Аватарка %>
-      <p> Формат даты: ДД/ММ/ГГГГ </p>
       <%= form.file_field :avatar, skip_label: true, class: "btn btn-info", placeholder: "Нажмите, чтобы выбрать файл"  %>
     </div>
+    <p> Формат даты: ДД/ММ/ГГГГ </p>
     <%= form.label :'Дата рождения:' %>
     <%=  form.date_field :birthday, skip_label: true, placeholder: "Дата рождения", type: 'text' %>
     <%= form.label :'Дата начала занятий:' %>

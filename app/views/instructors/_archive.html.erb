@@ -14,7 +14,7 @@
         <% if s.lessons.last %>
           <% if s.lessons.last.tempus %>
             <%= s.lessons.last.tempus.strftime("%d.%m.%Y %H:%k") %>
-            <% end %>
+          <% end %>
         <% end %>
       </td>
       <td>   <%= button_to 'Вернуть в действующие', fromarchive_path(s.id), class: 'btn btn-info' %> </td>

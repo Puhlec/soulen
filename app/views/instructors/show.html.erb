@@ -12,19 +12,17 @@
 <div id="studentsList">
   <table class="table", style="max-width: 500px;">
     <tbody>
-      <% @students.each do |s| %>
-        
-          <tr>
-            <% if s.fullname %>
-              <td>  <%= link_to s.fullname, instructor_student_path(s.instructor, s), class: "btn btn-info", style: "width: 200px;" %> </td>
-            <% else %>
-              <td> <%= link_to s.name, instructor_student_path(s.instructor, s), class: "btn btn-info", style: "width: 200px;" %></td>
-            <% end %>
-            <td>     <%= link_to "Редактировать", edit_instructor_student_path(s.instructor, s), class: "oi oi-pencil", title: "Редактировать", remote: true %>       </td>
-            <td>        <%= button_to "Убрать в архив", toarchive_path(s.id), class: "btn btn-outline-warning", title: 'Можно будет восстановить',
-                        data: { confirm: 'Вы уверены?' } %> </td>
-          </tr>
-
+      <% @students.each do |s| %>      
+        <tr>
+          <% if s.fullname %>
+            <td>  <%= link_to s.fullname, instructor_student_path(s.instructor, s), class: "btn btn-info", style: "width: 200px;" %> </td>
+          <% else %>
+            <td> <%= link_to s.name, instructor_student_path(s.instructor, s), class: "btn btn-info", style: "width: 200px;" %></td>
+          <% end %>
+          <td>     <%= link_to "Редактировать", edit_instructor_student_path(s.instructor, s), class: "oi oi-pencil", title: "Редактировать", remote: true %>       </td>
+          <td>        <%= button_to "Убрать в архив", toarchive_path(s.id), class: "btn btn-outline-warning", title: 'Можно будет восстановить',
+                      data: { confirm: 'Вы уверены?' } %> </td>
+        </tr>
       <% end %>
     </tbody>
   </table>

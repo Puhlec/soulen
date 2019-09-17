@@ -1,22 +1,17 @@
 <div class="bg">
-  <div>  
+  <div>
+    <h1> <%= @status.general %> </h1>
     <p> <%= @status.funny %> </p>
   </div>
   <div class="cent">
-    <center>
-      <h1> <%= @status.general %> </h1>
+    <center> <h1> <%= @status.statum %> </h1>
+      <% if @current_admin %>
+        <%= link_to '', edit_status_path(@status), class: 'oi oi-pencil', remote: true %>
+      <% end %>
     </center>
-    <br>
     <center>
+      <br>
       <%= link_to 'Вход', login_path, class: 'btn-lg btn-dark', remote: true %>
     </center>
-    <br>
-    <h1>
-      <center> <%= @status.statum %>
-    <% if @current_admin %>
-      <%= link_to '', edit_status_path(@status), class: 'oi oi-pencil', remote: true %>
-    <% end %>
-      </center>
-    </h1>
   </div>
 </div>
