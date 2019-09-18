@@ -6,8 +6,6 @@ let $ = jQuery;
 import Popper from 'popper';
 import 'bootstrap';
 
-console.log($);
-
 var Gachi = {
   openModal: function (title, content) {
     $("#modal .modal-title").html(title);
@@ -103,9 +101,13 @@ var Gachi = {
     document.addEventListener("click", function (e) {
       closeAllLists(e.target);
     });
-  }
-};
 
+  },
+  
+};
+window.onscroll = function() {
+  document.getElementById('dropdown').classList.add("sticky");
+};
 document.addEventListener("turbolinks:load", function() {
   $('[data-toggle="tooltip"]').tooltip();
 });

@@ -45,7 +45,7 @@
 }
 .center {
   position: absolute;
-  top: 60%;
+  top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -89,10 +89,15 @@
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
-h1, h2, p
+h1, h2, p.bold
 {
   font-weight: bold;
   font-style: normal;
   position: relative;
   left: 10px;  
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

@@ -11,48 +11,51 @@
 
   <body>
     <% if @current_instructor or @current_student or @current_admin %>
-      <nav class="navbar navbar-light">
-        <form class="form-inline">
+      <div class="dropdown" id="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Меню
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <% if @current_instructor %>
-            <%= link_to 'Выйти', logout_path, method: 'delete', class: "btn btn-outline-success"  %>
-            <%= link_to 'Ученики', instructor_path(@current_instructor), class: "btn btn-outline-success" %>
-            <%= link_to 'Настройки', settings_path(@current_instructor), class: "btn btn-outline-success" %>
+            <%= link_to 'Выйти', logout_path, method: 'delete', class: "dropdown-item"  %>
+            <%= link_to 'Ученики', instructor_path(@current_instructor), class: "dropdown-item" %>
+            <%= link_to 'Настройки', settings_path(@current_instructor), class: "dropdown-item" %>
             <% if @student %>
             <% end%>
           <% else %>
             <% if @current_student %>
-              <%= link_to 'Выйти', logout_path, method: 'delete', class: "btn btn-outline-success"  %>
+              <%= link_to 'Выйти', logout_path, method: 'delete', class: "dropdown-item"  %>
               <br>
-              <%= link_to 'Уроки', instructor_student_path(@current_student.instructor, @current_student),  class: "btn btn-outline-success"%>
+              <%= link_to 'Уроки', instructor_student_path(@current_student.instructor, @current_student),  class: "dropdown-item"%>
             <% else %>
               <% if @current_admin %>
-                <%= link_to 'Выйти', logout_path, method: 'delete', class: "btn btn-outline-success"  %>
-                <br>
-                <%= link_to 'Инструкторы', instructors_path,  class: "btn btn-outline-success"%>
-                <%= link_to 'Обновить статус', edit_status_path(Status.last), class: 'oi oi-pencil', remote: true %>
+                <%= link_to 'Выйти', logout_path, method: 'delete', class: "dropdown-item"  %>
+                <%= link_to 'Инструкторы', instructors_path,  class: "dropdown-item"%>
+                <%= link_to 'Обновить статус', edit_status_path(Status.last), class: 'dropdown-item', remote: true %>
               <% else %>
               <% end %>
             <% end %>
           <% end %>
-    <% end %>        
-        </form>
-      </nav>
-      
-      <%= yield %>
-      
-      <div id="modal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            </div>
+    <% end %>
+        </div>
+      </div>
+
+      <br>
+    <%= yield %>
+    
+    <div id="modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
           </div>
         </div>
       </div>
+    </div>
   </body>
 </html>

@@ -1,14 +1,16 @@
 <div class="bg">
   <div>
     <h1> <%= @status.general %> </h1>
-    <p> <%= @status.funny %> </p>
+    <p class="bold"> <%= @status.funny %> </p>
   </div>
-  <div class="cent">
+  <div class="center">
     <center> <h1> <%= @status.statum %> </h1>
       <% if @current_admin %>
         <%= link_to '', edit_status_path(@status), class: 'oi oi-pencil', remote: true %>
       <% end %>
     </center>
+  </div>
+  <div class ="cent">
     <center>
       <br>
       <%= link_to 'Вход', login_path, class: 'btn-lg btn-dark', remote: true %>
