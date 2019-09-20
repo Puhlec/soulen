@@ -1,5 +1,5 @@
 class InstructorsController < ApplicationController
-  before_action :set_instructor, :check_instructor, only: [:show, :edit, :update, :destroy, :settings]
+  before_action :set_instructor, :check_instructor, only: [:show, :edit, :update, :destroy, :settings, :templates, :archives]
   before_action :authorize_admin, only: [:edit, :create, :new,:destroy, :index]
   before_action :show_templates, :authorize_instructor, only: [:show, :index]
   # GET /instructors
@@ -62,11 +62,15 @@ class InstructorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def settings
-    @students = @instructor.students.where(unused: true)
+  def settings    
+  end
+  def templates
     @templates = @instructor.templates.all
   end
-   private
+  def archives
+    @students = @instructor.students.where(unused: true)
+  end
+  private
   # Use callbacks to share common setup or constraints between actions.
   def set_instructor
     @instructor = Instructor.find(params[:id])

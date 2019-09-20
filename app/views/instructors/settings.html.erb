@@ -1,16 +1,2 @@
-<div class="row">
-  <div class="col-3">
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-templates-list" data-toggle="list" href="#list-templates" role="tab" aria-controls="home">Шаблоны</a>
-      <a class="list-group-item list-group-item-action" id="list-general-list" data-toggle="list" href="#list-general" role="tab" aria-controls="profile">Общие</a>
-      <a class="list-group-item list-group-item-action" id="list-archive-list" data-toggle="list" href="#list-archive" role="tab" aria-controls="messages">Архивные</a>
-    </div>
-  </div>
-  <div class="col-6">
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="list-templates" role="tabpanel" aria-labelledby="list-templates-list"> <%= render 'templates' %></div>
-      <div class="tab-pane fade" id="list-general" role="tabpanel" aria-labelledby="list-general-list"><%= render 'general' %></div>
-      <div class="tab-pane fade" id="list-archive" role="tabpanel" aria-labelledby="list-archive-list"><%= render 'archive'%></div>
-    </div>
-  </div>
-</div>
+<%= render 'menu' %>
+<%= render 'general' %>

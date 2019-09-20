@@ -1,6 +1,3 @@
-<% if @current_instructor%>
-  <%= link_to 'Добавить урок', new_instructor_student_lesson_path(@current_instructor, @student), remote: true, class: 'btn btn-info' %>
-<% end %>
 <div>
   <% if @student.avatar.attached?  %>
     <%= image_tag @student.avatar, style: "max-width: 100px" %>

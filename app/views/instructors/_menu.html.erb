@@ -1,3 +1,5 @@
-<%= link_to 'Общие' %>
-<%= link_to 'Шаблоны' %>
-<%= link_to 'Архивные ученики' %>
+<center>
+  <%= link_to 'Общие', settings_path(@current_instructor), class: 'btn btn-dark' %>
+  <%= link_to 'Шаблоны', templates_path(@current_instructor), class: 'btn btn-dark' %>
+  <%= link_to 'Архивные', archives_path(@current_instructor), class: 'btn btn-dark' %>
+</center>
