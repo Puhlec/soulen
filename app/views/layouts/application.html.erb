@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
     <title>Вождение с удовольствием</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,7 +12,7 @@
 
   <body>
     <% if @current_instructor or @current_student or @current_admin %>
-      <div class="dropdown" id="dropdown">
+      <div class="dropdown" id="dropdown" style="sticky">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Меню
         </button>

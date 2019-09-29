@@ -1,18 +1,17 @@
-<div>
+<div class ="container">
   <% if @student.avatar.attached?  %>
-    <%= image_tag @student.avatar, style: "max-width: 100px" %>
+    <%= image_tag @student.avatar, style: "max-width: 470px" %>
   <% end %>
   <%= @student.name %>
   <hr>
-  <p> Уроки: </p>
-  <div class="container">
+  <div class="container" style ="width:100%">
     <div class="row">
-      <div class="col-4">
+      <div class="col-3" style="min-width: 200px;">
         <nav class="nav flex-column">
           <%= render 'menu', student: @student%>
         </nav>
       </div>
-      <div class="col-6">
+      <div class="col-20">
         <%= render 'show', lesson: @lesson %>
       </div>
     </div>

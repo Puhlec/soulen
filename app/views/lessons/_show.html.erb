@@ -1,10 +1,12 @@
+<center>
 <h5>
   Урок <%= lesson.number %>
 </h5>
+</center>
 <% if lesson.tempus %>
-    Дата и время урока:
+  Дата и время урока:
   <%= lesson.tempus.strftime("%d.%m.%Y %H:%k") %>
-  <% end %>
+<% end %>
 <p>
   <%= lesson.content %>
 </p>
@@ -15,13 +17,13 @@
       <td> <%= e.note  %> </td>
       <td> <%= e.mark %> </td>
       <% if @current_instructor %>
-      <td> <%= link_to 'Редактировать', edit_instructor_student_lesson_entry_path(lesson.student.instructor, lesson.student, lesson, e), remote: true %>
-        <td> <%= link_to 'Удалить', instructor_student_lesson_entry_path(lesson.student.instructor, lesson.student, lesson, e), method: :delete %>
-        </td>
-        <% end %>
+        <td> <%= link_to 'Редактировать', edit_instructor_student_lesson_entry_path(lesson.student.instructor, lesson.student, lesson, e), remote: true %>
+          <td> <%= link_to 'Удалить', instructor_student_lesson_entry_path(lesson.student.instructor, lesson.student, lesson, e), method: :delete %>
+          </td>
+      <% end %>
     </tr>
 
-<% end %>
+  <% end %>
 </table>
 </p>
 <% if lesson.video.length > 0 %>

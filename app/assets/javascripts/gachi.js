@@ -103,11 +103,14 @@ var Gachi = {
     });
 
   },
+
+};
+
+window.onscroll = function() {
+  document.getElementById("dropdown").classList.add("sticky");
   
 };
-window.onscroll = function() {
-  document.getElementById('dropdown').classList.add("sticky");
-};
+
 document.addEventListener("turbolinks:load", function() {
   $('[data-toggle="tooltip"]').tooltip();
 });

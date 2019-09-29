@@ -1,7 +1,20 @@
-<div class="pre-scrollable" style="max-width: 200px;">
-  <% @lessons.each do |l| %>
-    <li class="nav-item">
-      <%= link_to l.number, instructor_student_lesson_path(l.student.instructor, l.student, l), class: "nav-link  btn-info" if l.id %>
-    </li>
-  <% end  %>
+<div class="pre-scrollable">
+  <div class="table-responsive-lg">
+    <table class="table table-bordered">
+      <tbody>
+        <% i = 0 %>
+        <% while i <= @lessons.length do %>
+          <tr>
+            <td>
+              <%= link_to @lessons[i].number, instructor_student_lesson_path(@instructor, @student, @lessons[i]), class: "nav-link btn-info" if @lessons[i] %>
+            </td>              
+            <td>
+              <%= link_to @lessons[i+1].number, instructor_student_lesson_path(@instructor, @student, @lessons[i+1]), class: "nav-link btn-info" if @lessons[i+1] %>
+            </td>
+          </tr>
+          <% i = i + 2 %>
+        <% end  %>
+      </tbody>
+    </table>
+  </div>
 </div>

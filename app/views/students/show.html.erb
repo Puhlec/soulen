@@ -5,18 +5,18 @@
   <% end %>
   <% if @student.fullname %>
     <%= @student.fullname %>
-    <% else %>
+  <% else %>
     <%= @student.name %>
-    <% end %>
+  <% end %>
   <% if @student.birthday %>
-  <div>  Дата рождения:
-    <%= @student.birthday %> </div>
+    <div>  Дата рождения:
+      <%= @student.birthday %> </div>
   <% end %>
   <div>
     <% if @student.startlearn %>
-    Дата начала занятий:
+      Дата начала занятий:
       <%= @student.startlearn %>
-      <% end %>
+    <% end %>
   </div>
   <div>
     <% if @student.datexam %>
@@ -26,6 +26,5 @@
   </div>
 </p>
 <hr>
-<p> Уроки: </p>
 <%= render 'lessons/menu' %>
 <hr>
