@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_user 
   def set_user
     @current_instructor ||= Instructor.find(session[:instructor_id]) if session[:instructor_id]
-    if @current_instructor
-    else
+    if !@current_instructor
       @current_student ||= Student.find(session[:student_id]) if session[:student_id]
       @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
     end

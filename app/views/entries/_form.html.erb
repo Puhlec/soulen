@@ -1,14 +1,14 @@
-<%= form_with model: [entry.lesson.student.instructor, entry.lesson.student, entry.lesson, entry], remote: true do |f| %>
-  <div>
-    <%= f.text_field :note, autocomplete: 'off', id: 'lol', class: 'autocomplete', type: 'text' %>
+<%= bootstrap_form_with model: [entry.lesson.student.instructor, entry.lesson.student, entry.lesson, entry], remote: true do |f| %>
+
+    <%= f.text_field :note, autocomplete: 'off', id: 'lol', class: 'autocomplete', type: 'text', skip_label: true %>
     <script>    
      Gachi.autocomplete(document.getElementById("lol"), JSON.parse(`<%= escape_javascript(raw (@templates.map {|t| t.pictogram}).to_json) %>`))
     </script>
-  </div>
-  <div>
+
+
     <%= f.label :Оценка %>
-    <%= f.number_field :mark %>
-  </div>
+    <%= f.number_field :mark, skip_label: true, style: 'width: 100px;' %>
+
   <div class="actions">
     <%= f.submit :'Сохранить запись' %>
   </div>

@@ -1,3 +1,6 @@
+<% if @current_instructor %>
+  <%= link_to 'Добавить урок', new_instructor_student_lesson_path(@current_instructor, @student), remote: true, class: 'btn btn-info' %>
+  <% end %>
 <div class="pre-scrollable">
   <div class="table-responsive-lg">
     <table class="table table-bordered">

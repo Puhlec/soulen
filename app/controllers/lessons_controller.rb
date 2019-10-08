@@ -37,7 +37,7 @@ class LessonsController < ApplicationController
     @entries = []
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to instructor_student_path(@instructor, @student), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to instructor_student_lesson_path(@instructor, @student, @lesson), notice: 'Lesson was successfully created.' }
       else
         format.html { render @lesson.errors }
         format.json { render json: @lesson.errors, status: :unprocessable_entity }

@@ -1,6 +1,6 @@
 <%= form_with model: [lesson.student.instructor, lesson.student, lesson], local: true do |form|  %>
   <div class="field">
-    <%= form.label :"Номер урока" %>
+    <%= form.label :"Номер занятия" %>
     <%= form.number_field :number %>
   </div>
   <div class="field">
