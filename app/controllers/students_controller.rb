@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
     @student.unused = false
     respond_to do |format|
       if @student.save
-        format.html { redirect_to instructor_path(@student.instructor), notice: 'Student was successfully created.' }
+        format.htmx { redirect_to instructor_path(@student.instructor), notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }

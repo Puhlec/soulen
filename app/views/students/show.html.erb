@@ -10,7 +10,8 @@
   <% end %>
   <% if @student.birthday %>
     <div>  Дата рождения:
-      <%= @student.birthday %> </div>
+      <%= @student.birthday.strftime("%d.%m.%Y") %>
+    </div>
   <% end %>
   <div>
     <% if @student.startlearn %>
