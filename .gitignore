@@ -34,5 +34,3 @@ yarn-debug.log*
 .yarn-integrity
 # ignoring test images:
 /app/assats/images/**
-/bin/**
-config/**
